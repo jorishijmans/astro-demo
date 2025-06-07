@@ -3,3 +3,7 @@
 
 export const SITE_TITLE = 'Astro Demo';
 export const SITE_DESCRIPTION = 'Welcome to my Astro Demo';
+
+
+// Languages
+

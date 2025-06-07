@@ -1,0 +1,41 @@
+---
+import { type CollectionEntry, getCollection, render } from 'astro:content';
+import BlogPost from '../../../layouts/BlogPost.astro';
+// Utility to derive locale from URL if needed
+import { getLangFromUrl } from '../../../i18n/utils';
+
+export async function getStaticPaths() {
+  const pages = await getCollection('blog');
+  return pages.map((page) => {
+    // Split the `id` (e.g. "en-GB/my-post") into lang and slug parts
+    const [lang, ...slugParts] = page.id.split('/');
+    return {
+      params: {
+        lang,
+        slug: slugParts.join('/'),
+      },
+      props: page,
+    };
+  });
+}
+
+type Props = CollectionEntry<'blog'>;
+
+// Extract `lang` and `slug` from route parameters
+const { lang, slug } = Astro.params;
+const page = Astro.props;
+
+// Format the published date safely
+const formattedDate = page.data.date
+  ? new Date(page.data.date).toLocaleString(lang)
+  : '';
+
+// Render MDX/MD content
+const { Content } = await render(page);
+---
+
+<BlogPost {...page.data}>
+  <h1>{page.data.title}</h1>
+  <p>by {page.data.author} • {formattedDate}</p>
+  <Content />
+</BlogPost>
