@@ -12,6 +12,11 @@
 			"nvmVersion": "latest"
 		}
 	},
+	"customizations": {
+		"vscode": {
+			"extensions": ["astro-build.astro-vscode"]
+		}
+	},
 
 	// Use 'postCreateCommand' to run commands after the container is created.
 	"postCreateCommand": "sudo apt update && sudo apt upgrade && pnpm install && pnpm run build"
