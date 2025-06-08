@@ -4,10 +4,15 @@ import { dirname } from 'path';
 
 import { defineConfig } from 'astro/config';
 
+// Import Astro integrations
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import netlify from '@astrojs/netlify';
-// import { DEFAULT_LOCALE_SETTING, LOCALES_SETTING } from './src/locales';
+
+// Add Tailwindcss
+import tailwindcss from '@tailwindcss/vite'
+
+// Import { DEFAULT_LOCALE_SETTING, LOCALES_SETTING } from './src/locales';
 import { defaultLang, languages } from './src/i18n/ui';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -35,9 +40,16 @@ export default defineConfig({
       },
   },
 
-    integrations: [mdx(), sitemap()],
+    integrations: [
+      mdx(),
+      sitemap(),
+    ],
 
-  
+  vite: {
+    plugins: [
+      tailwindcss(),
+    ],
+  },
 
   /*
   vite: {
