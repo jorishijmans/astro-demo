@@ -1,0 +1,20 @@
+{
+"joris": {
+		"name": "Joris Hijmans",
+		"image": "./avatar.webp",
+		"linkedin": "https://linkedin.com/jorishijmans",
+		"github": "https://github.com/jorishijmans"
+	},
+"Astro Learner": {
+		"name": "Joris Hijmans",
+		"image": "./avatar.webp",
+		"linkedin": "https://linkedin.com/jorishijmans",
+		"github": "https://github.com/jorishijmans"
+	},
+"joris-b": {
+		"name": "Joris Hijmans",
+		"image": "./avatar.webp",
+		"linkedin": "https://linkedin.com/jorishijmans",
+		"github": "https://github.com/jorishijmans"
+	}
+}
