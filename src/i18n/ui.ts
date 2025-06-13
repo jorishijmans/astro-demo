@@ -1,25 +1,39 @@
-// Available languages
+
+
+// Localisation languages
+
+// Using only `en: 'English'` works 
 export const languages = {
-  'en-GB': 'English (GB)',
-  'nl-NL': 'Nederlands',
- /* fr: 'Français', */
-};
+ // British English
+  en: 'English (GB)',
+  nl: 'Nederlands',
+} as const;
 
-// Set default website language
-export const defaultLang = 'en-GB';
+// Adding label and lang to languages does not work.
+//export const languages = {
+//  // British English
+//  en: { label: 'English', lang: 'en-GB' },
+//  nl: { label: 'Nederlands', lang: 'nl-NL' },
+//} as const; // Ensure literal types for 'en' and 'nl'
 
-// Show default language
-export const showDefaultLang = true;
+
+// Default locale
+export const defaultLang = 'en';
+
+export const showDefaultLang = 'true';
+
+
+
 
 export const ui = {
-  'en-GB': {
+  en: {
     'nav.home': 'Home',
     'nav.services': 'Services',
     'nav.resources': 'Resources',
     'nav.about': 'About',
     'nav.contact': 'Contact',
   },
-  'nl-NL': {
+  nl: {
     'nav.home': 'Home',
     'nav.services': 'Services',
     'nav.resources': 'Resources',
@@ -34,18 +48,20 @@ export const ui = {
   */
 } as const;
 
-type routes = {
-  services: string;
-  about:    string;
-};
 
-export const routes: Record<string, routes> = {
-  'nl-NL': {
+//interface routes {
+//  label: string;
+//  lang?: string;
+//  dir?: 'ltr' | 'rtl';
+//}
+
+export const routes = {
+  en: {
+    'services': 'services',
+    'about': 'about',
+   },
+  nl: {
     'services': 'services',
     'about': 'over',
    },
-
 } as const;
-
-export type route = keyof routes;
-
