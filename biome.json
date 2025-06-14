@@ -1,0 +1,71 @@
+{
+	"$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+	
+	"vcs": {
+		"enabled": true,
+		"clientKind": "git",
+		"useIgnoreFile": true
+	},
+	"files": {
+		"ignoreUnknown": false,
+		"ignore": []
+	},
+	"formatter": {
+		"enabled": true,
+		"indentStyle": "tab",
+		"indentWidth": 2,
+		"lineWidth": 100,
+		"formatWithErrors": true,
+		"ignore": ["*.astro"]
+		},
+		"organizeImports": {
+		"enabled": true
+	},
+	"javascript": {
+		"formatter": {
+			"trailingCommas": "all",
+			"quoteStyle": "single",
+			"semicolons": "always"
+		}
+	},
+	"json": {
+		"parser": {
+			"allowComments": true,
+			"allowTrailingCommas": true
+		},
+		"formatter": {
+			"trailingCommas": "none"
+		}
+	},
+    "overrides": [
+      {
+        "include": ["*.svelte", "*.astro", "*.vue", "package.json"],
+		"json": {
+			"formatter": {
+			"lineWidth": 1
+				}
+			},
+		"linter": {
+		  "enabled": true,
+          "rules": {
+            "recommended": true,
+			"style": {
+              "useConst": "off",
+              "useImportType": "off",
+			  "useFilenamingConvention": {
+				"level": "error",
+			  	"options": {
+        		"strictCase": false,
+					"requireAscii": true,
+        			"filenameCases": ["camelCase", "export"]
+			  	}
+			  }
+			},
+			"suspicious": {
+			  "useValidTypeof": "error"
+            }
+          }
+        }
+      }
+    ]
+}
